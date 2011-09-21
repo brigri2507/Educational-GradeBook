@@ -30,6 +30,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.Hashtable;
 import javax.swing.JSeparator;
+import javax.swing.SwingConstants;
 
 
 public class ManageGradeBook {
@@ -278,9 +279,38 @@ public class ManageGradeBook {
 		lblNewLabel_1.setBounds(110, 439, 241, 14);
 		panelCourses.add(lblNewLabel_1);
 		
+		JLabel labelTeacherCourse = new JLabel("Add a teacher to a course");
+		labelTeacherCourse.setHorizontalAlignment(SwingConstants.LEFT);
+		labelTeacherCourse.setBounds(10, 107, 125, 44);
+		panelCourses.add(labelTeacherCourse);
+		
+		JLabel labelCourseNameToTeacher = new JLabel("Course name");
+		labelCourseNameToTeacher.setBounds(158, 107, 150, 14);
+		panelCourses.add(labelCourseNameToTeacher);
+		
+		JButton btnAddTeacher = new JButton("Add Teacher -> Course");
+		btnAddTeacher.setBounds(574, 107, 150, 44);
+		panelCourses.add(btnAddTeacher);
+		
+		JComboBox comboBoxCourseToTeacher = new JComboBox();
+		comboBoxCourseToTeacher.setBounds(158, 129, 193, 20);
+		panelCourses.add(comboBoxCourseToTeacher);
+		
+		JComboBox comboBoxTeacherToCourse = new JComboBox();
+		comboBoxTeacherToCourse.setBounds(368, 129, 193, 20);
+		panelCourses.add(comboBoxTeacherToCourse);
+		
+		JLabel labelTeacherNameToCourse = new JLabel("Teacher name");
+		labelTeacherNameToCourse.setBounds(368, 107, 150, 14);
+		panelCourses.add(labelTeacherNameToCourse);
+		
 		JSeparator separator = new JSeparator();
-		separator.setBounds(32, 155, 690, 2);
+		separator.setBounds(20, 94, 697, 2);
 		panelCourses.add(separator);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(20, 155, 697, 2);
+		panelCourses.add(separator_1);
 		//****************************   END COURSE FIELDS *************** /
 		
 		//Add 'Assignments' pane
