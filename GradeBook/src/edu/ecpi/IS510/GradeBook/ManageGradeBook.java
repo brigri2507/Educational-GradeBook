@@ -228,36 +228,8 @@ public class ManageGradeBook {
 		JLabel lblUseCtrlclickTo = new JLabel("Use Ctrl+click to add multiple students");
 		lblUseCtrlclickTo.setBounds(31, 175, 260, 14);
 		panel_2.add(lblUseCtrlclickTo);*/
-		
-		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 782, 21);
-		frmIsGradebookApplication.getContentPane().add(menuBar);
-		
-		JMenu mnNewMenu = new JMenu("File");
-		menuBar.add(mnNewMenu);
-		
-		JMenuItem mntmSaveAll = new JMenuItem("Save all");
-		mnNewMenu.add(mntmSaveAll);
 	}
 
-	
-	protected static void addPopup(Component component, final JPopupMenu popup) {
-		component.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			public void mouseReleased(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			protected void showMenu(MouseEvent e) {
-				popup.show(e.getComponent(), e.getX(), e.getY());
-			}
-		});
-	}
 }
 
 

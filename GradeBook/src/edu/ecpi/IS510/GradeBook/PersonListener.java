@@ -7,6 +7,13 @@ import java.sql.SQLException;
 import javax.swing.ButtonGroup;
 import javax.swing.JTextField;
 
+
+/*
+ * This class listens for a button to be pressed and
+ * accepts 6 parameters in it's constructor which it,
+ * in turn, passes to the 'actionPerformed' method for parsing,
+ * validation (not done yet), and posting to the database
+ */
 class PersonListener implements ActionListener {
 	JTextField firstName, lastName, address, email, phone, id;
 	ButtonGroup personType;
@@ -19,6 +26,8 @@ class PersonListener implements ActionListener {
 	  this.phone = phoneField;
 	  this.personType = personType;
   }
+	
+	
 
   /*
    * (non-Javadoc)
