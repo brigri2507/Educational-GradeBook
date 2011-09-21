@@ -36,19 +36,19 @@ public class ManageGradeBook {
 	protected JFrame frmIsGradebookApplication;
 	
 	//Add Person Fields
-	protected JTextField firstNameField;
-	protected JTextField lastNameField;
-	protected JTextField addressField;
-	protected JTextField phoneField;
+	protected JTextField textBoxFirstName;
+	protected JTextField textBoxLastName;
+	protected JTextField textBoxAddress;
+	protected JTextField textBoxPhone;
 	protected final ButtonGroup personType = new ButtonGroup();
 	protected JRadioButton rdbtnNewRadioButton = new JRadioButton("Student");
 	protected JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Teacher");
-	protected JTextField emailField;
+	protected JTextField textBoxEmail;
 	
 	//Add Course Fields
 	private int[] creditValues = new int[4];
-	protected JTextField courseNameField;
-	protected JTextField courseNumberField;
+	protected JTextField textBoxCourseName;
+	protected JTextField textBoxCourseNumber;
 
 	/**
 	 * The class creates the window of the application, places
@@ -116,6 +116,7 @@ public class ManageGradeBook {
 		
 		//Add 'People' pane
 		JPanel panelPeople = new JPanel();
+		panelPeople.setToolTipText("You must select \"Student\" or \"Teacher\"");
 		tabbedPane.addTab("People", null, panelPeople, null);
 		panelPeople.setLayout(null);
 		
@@ -125,60 +126,60 @@ public class ManageGradeBook {
 		
 		
 		//****************************   BEGIN PERSON FIELDS *************** /
-		firstNameField = new JTextField("Enter Firstname");
-		firstNameField.setBounds(79, 33, 205, 20);
-		panelPeople.add(firstNameField);
-		firstNameField.setColumns(10);
+		textBoxFirstName = new JTextField("Enter Firstname");
+		textBoxFirstName.setBounds(124, 36, 205, 20);
+		panelPeople.add(textBoxFirstName);
+		textBoxFirstName.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Firstname");
-		lblNewLabel.setBounds(10, 36, 46, 14);
-		panelPeople.add(lblNewLabel);
+		JLabel labelFirstName = new JLabel("First name");
+		labelFirstName.setBounds(10, 36, 104, 14);
+		panelPeople.add(labelFirstName);
 
 		
-		lastNameField = new JTextField("Enter Lastname");
-		lastNameField.setBounds(79, 61, 205, 20);
-		panelPeople.add(lastNameField);
-		lastNameField.setColumns(10);
+		textBoxLastName = new JTextField("Enter Lastname");
+		textBoxLastName.setBounds(124, 64, 205, 20);
+		panelPeople.add(textBoxLastName);
+		textBoxLastName.setColumns(10);
 		
-		JLabel lastNameLabel = new JLabel("Lastname");
-		lastNameLabel.setBounds(10, 64, 46, 14);
-		panelPeople.add(lastNameLabel);
+		JLabel labelLastName = new JLabel("Last name");
+		labelLastName.setBounds(10, 64, 104, 14);
+		panelPeople.add(labelLastName);
 		
-		addressField = new JTextField();
-		addressField.setColumns(10);
-		addressField.setBounds(79, 86, 205, 20);
-		panelPeople.add(addressField);
+		textBoxAddress = new JTextField();
+		textBoxAddress.setColumns(10);
+		textBoxAddress.setBounds(124, 89, 205, 20);
+		panelPeople.add(textBoxAddress);
 		
 		JLabel lblAddress = new JLabel("Address");
-		lblAddress.setBounds(10, 89, 59, 14);
+		lblAddress.setBounds(10, 89, 104, 14);
 		panelPeople.add(lblAddress);
 		
-		phoneField = new JTextField();
-		phoneField.setColumns(10);
-		phoneField.setBounds(79, 111, 205, 20);
-		panelPeople.add(phoneField);
+		textBoxPhone = new JTextField();
+		textBoxPhone.setColumns(10);
+		textBoxPhone.setBounds(124, 114, 205, 20);
+		panelPeople.add(textBoxPhone);
 		
 		JLabel lblPhone = new JLabel("Phone");
-		lblPhone.setBounds(10, 113, 46, 14);
+		lblPhone.setBounds(10, 113, 104, 14);
 		panelPeople.add(lblPhone);
 		
 		rdbtnNewRadioButton.setActionCommand("Student");		
 		personType.add(rdbtnNewRadioButton);
-		rdbtnNewRadioButton.setBounds(290, 85, 250, 23);
+		rdbtnNewRadioButton.setBounds(335, 202, 250, 23);
 		panelPeople.add(rdbtnNewRadioButton);
 		
 		rdbtnNewRadioButton_1.setActionCommand("Teacher");
 		personType.add(rdbtnNewRadioButton_1);
-		rdbtnNewRadioButton_1.setBounds(290, 60, 250, 23);
+		rdbtnNewRadioButton_1.setBounds(335, 177, 250, 23);
 		panelPeople.add(rdbtnNewRadioButton_1);
 		
-		emailField = new JTextField();
-		emailField.setColumns(10);
-		emailField.setBounds(79, 139, 205, 20);
-		panelPeople.add(emailField);
+		textBoxEmail = new JTextField();
+		textBoxEmail.setColumns(10);
+		textBoxEmail.setBounds(124, 142, 205, 20);
+		panelPeople.add(textBoxEmail);
 		
 		JLabel lblNewLabel_2 = new JLabel("Email");
-		lblNewLabel_2.setBounds(10, 141, 46, 14);
+		lblNewLabel_2.setBounds(10, 141, 104, 14);
 		panelPeople.add(lblNewLabel_2);
 		
 		JButton btnNewButton = new JButton("Add Person");
@@ -187,7 +188,7 @@ public class ManageGradeBook {
 		
 		//Add the action listener to the Add Person button and pass in the ACTUAL fields themselves to grant access to the data
 		//that will be entered into them
-		btnNewButton.addActionListener(new PersonListener(firstNameField, lastNameField, addressField, phoneField, emailField, personType));
+		btnNewButton.addActionListener(new PersonListener(textBoxFirstName, textBoxLastName, textBoxAddress, textBoxPhone, textBoxEmail, personType));
 
 		//****************************   END PERSON FIELDS *************** /
 		
@@ -199,45 +200,70 @@ public class ManageGradeBook {
 		tabbedPane.addTab("Courses", null, panelCourses, null);
 		panelCourses.setLayout(null);
 		
-		JLabel lblNewLabel_3 = new JLabel("Add a new course");
-		lblNewLabel_3.setBounds(10, 11, 139, 14);
-		panelCourses.add(lblNewLabel_3);
+		JLabel labelAddCourse = new JLabel("Add a new course");
+		labelAddCourse.setBounds(10, 11, 139, 14);
+		panelCourses.add(labelAddCourse);
 		
-		JLabel lblNewLabel_4 = new JLabel("Course name");
-		lblNewLabel_4.setBounds(10, 36, 150, 14);
-		panelCourses.add(lblNewLabel_4);
+		JLabel labelAddCourseName = new JLabel("Course name");
+		labelAddCourseName.setBounds(10, 36, 150, 14);
+		panelCourses.add(labelAddCourseName);
 		
-		courseNameField = new JTextField();
-		courseNameField.setBounds(110, 36, 241, 20);
-		panelCourses.add(courseNameField);
-		courseNameField.setColumns(10);
+		textBoxCourseName = new JTextField();
+		textBoxCourseName.setBounds(110, 36, 241, 20);
+		panelCourses.add(textBoxCourseName);
+		textBoxCourseName.setColumns(10);
 
 		
-		JLabel courseNumberLabel = new JLabel("Course Number");
-		courseNumberLabel.setBounds(10, 61, 150, 14);
-		panelCourses.add(courseNumberLabel);
+		JLabel labelAddCourseNumber = new JLabel("Course Number");
+		labelAddCourseNumber.setBounds(10, 61, 150, 14);
+		panelCourses.add(labelAddCourseNumber);
 		
-		courseNumberField = new JTextField();
-		courseNumberField.setBounds(110, 64, 241, 20);
-		panelCourses.add(courseNumberField);
-		courseNumberField.setColumns(10);
+		textBoxCourseNumber = new JTextField();
+		textBoxCourseNumber.setBounds(110, 64, 241, 20);
+		panelCourses.add(textBoxCourseNumber);
+		textBoxCourseNumber.setColumns(10);
 		
 		//Create dropdown list of credits
-		JComboBox credits = new JComboBox();
-		credits.setModel(new DefaultComboBoxModel());
-		credits.setBounds(350, 35, 60, 22);
-		credits.addItem(1);
-		credits.addItem(2);
-		credits.addItem(3);
-		credits.addItem(4);
-		panelCourses.add(credits);
+		JComboBox comboBoxCredits = new JComboBox();
+		comboBoxCredits.setModel(new DefaultComboBoxModel());
+		comboBoxCredits.setBounds(350, 35, 60, 22);
+		comboBoxCredits.addItem(1);
+		comboBoxCredits.addItem(2);
+		comboBoxCredits.addItem(3);
+		comboBoxCredits.addItem(4);
+		panelCourses.add(comboBoxCredits);
 		
 		JButton btnNewButton_1 = new JButton("Add Course");
 		panelCourses.add(btnNewButton_1);
-		btnNewButton_1.setBounds(331, 234, 126, 23);
+		btnNewButton_1.setBounds(350, 95, 126, 23);
+		//TODO Add an update action to re-populate combo lists below in course tab
 		
 		//Add 'Add Course' action listener
-		btnNewButton_1.addActionListener(new CourseListener(courseNameField, courseNumberField, credits));	
+		btnNewButton_1.addActionListener(new CourseListener(textBoxCourseName, textBoxCourseNumber, comboBoxCredits));	
+		
+		JLabel labelAddStudentCourse = new JLabel("Add Student to Course");
+		labelAddStudentCourse.setBounds(10, 168, 139, 14);
+		panelCourses.add(labelAddStudentCourse);
+		
+		JLabel lblSelectCourseAddStudent = new JLabel("Select Course");
+		lblSelectCourseAddStudent.setBounds(10, 193, 150, 14);
+		panelCourses.add(lblSelectCourseAddStudent);
+		
+		JLabel lblSelectAddStudent = new JLabel("Course Number");
+		lblSelectAddStudent.setBounds(10, 218, 150, 14);
+		panelCourses.add(lblSelectAddStudent);
+		
+		JButton buttonAddStudentCourse = new JButton("Add Student to Course");
+		buttonAddStudentCourse.setBounds(350, 252, 200, 23);
+		panelCourses.add(buttonAddStudentCourse);
+		
+		JComboBox comboBoxSelectCourseAddStudent = new JComboBox();
+		comboBoxSelectCourseAddStudent.setBounds(110, 190, 241, 20);
+		panelCourses.add(comboBoxSelectCourseAddStudent);
+		
+		JComboBox comboBoxSelectAddStudent = new JComboBox();
+		comboBoxSelectAddStudent.setBounds(110, 221, 241, 20);
+		panelCourses.add(comboBoxSelectAddStudent);
 		//****************************   END COURSE FIELDS *************** /
 		
 		//Add 'Assignments' pane
@@ -280,7 +306,6 @@ public class ManageGradeBook {
 		lblUseCtrlclickTo.setBounds(31, 175, 260, 14);
 		panel_2.add(lblUseCtrlclickTo);*/
 	}
-
 }
 
 
