@@ -64,6 +64,8 @@ class PersonListener implements ActionListener {
 		  }
 		  else{
 			  Teacher newTeacher = new Teacher();
+			  
+			  //'getText()' pulls the data from the form field and returns a string
 			  newTeacher.setFirstName(this.firstName.getText());
 			  newTeacher.setLastName(this.lastName.getText());
 			  newTeacher.setAddress(this.address.getText());
@@ -72,7 +74,7 @@ class PersonListener implements ActionListener {
 			  try {
 				GradeBook.dbController.teacherDao.createOrUpdate(newTeacher);
 				//GradeBook.updateStudents();
-		        System.out.println("Teacher Added");
+		        System.out.println(GradeBook.teachers);
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
