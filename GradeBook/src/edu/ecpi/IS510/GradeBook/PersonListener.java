@@ -15,9 +15,15 @@ import javax.swing.JTextField;
  * validation (not done yet), and posting to the database
  */
 class PersonListener implements ActionListener {
+	
+	//These fields will be used to store the field from the form
 	JTextField firstName, lastName, address, email, phone, id;
 	ButtonGroup personType;
-	long personId;
+	
+	/*
+	 * Here we create pointers to be able to refer to the fields in the form when
+	 * the 'Add Person' button is clicked
+	 */
 	PersonListener(JTextField firstNameField, JTextField lastNameField, JTextField addressField, JTextField phoneField, JTextField emailField, ButtonGroup personType) {
 	  this.firstName = firstNameField;
 	  this.lastName = lastNameField;
@@ -32,8 +38,9 @@ class PersonListener implements ActionListener {
   /*
    * (non-Javadoc)
    * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-   * This funciton receives the data from the form when the "Add Person" button is clicked
-   * and adds the person to the database
+   * This function accesses the data in the form fields via the established
+   * pointer references and creates new instances of Student or Teacher
+   * and adds them to the database
    */
   public void actionPerformed(ActionEvent e) {
 	  String selectedButton = personType.getSelection().getActionCommand(); 
