@@ -2,6 +2,7 @@ package edu.ecpi.IS510.GradeBook;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.JTextField;
 
@@ -14,14 +15,26 @@ import javax.swing.JTextField;
  */
 
 class CourseListener implements ActionListener {
-	String courseName, courseNumber;
+	JTextField courseName, courseNumber;
 	long personId;
 	CourseListener(JTextField courseNameField, JTextField courseNumberField) {
-	  this.courseName = courseNameField.getText();
-	  this.courseNumber = courseNumberField.getText();
+	  this.courseName = courseNameField;
+	  this.courseNumber = courseNumberField;
   }
 
   public void actionPerformed(ActionEvent e) {
-	  	//DO STUFF HERE
+	  Course newCourse = new Course();
+	  newCourse.courseNumber = courseNumber.getText();
+	  newCourse.title = courseName.getText();
+	  
+
+	  try {
+		GradeBook.dbController.courseDao.createOrUpdate(newCourse);
+		//GradeBook.updateStudents();
+        System.out.println(GradeBook.courses);
+	} catch (SQLException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	}
   }
 }

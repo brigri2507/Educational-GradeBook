@@ -30,18 +30,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.Hashtable;
 
-/*
- * @param firstNameField JTextField accepts the first name of the user
- * @param lastNameField JTextField accepts the last name of the user
- * @param addressField JTextField accepts the address of the user
- * @param phoneField JTextField accepts the phone number of the user
- * @param emailField JTextField accepts the email address of the user
- * @param rdbtnNewRadioButton JRadioButton choose Student type of Person
- * @param rdbtnNewRadioButton_1 JRadioButton choose Teacher type of Person
- * @param personType JTextField accepts the first name of the user
- * @param courseNameField JTextField accepts the course name
- * @param courseNumberField JTextField accepts the course number
- */
+
 public class ManageGradeBook {
 
 	protected JFrame frmIsGradebookApplication;
@@ -61,8 +50,23 @@ public class ManageGradeBook {
 	protected JTextField courseNumberField;
 
 	/**
-	 * Launch the application.
-	 * Moved to 'Main.java'
+	 * The class creates the window of the application, places
+	 * the fields and labels in the correct places, builds the 
+	 * tabs and attaches the correct button listeners
+	 * 
+	 * @param firstNameField JTextField accepts the first name of the user
+	 * @param lastNameField JTextField accepts the last name of the user
+	 * @param addressField JTextField accepts the address of the user
+	 * @param phoneField JTextField accepts the phone number of the user
+	 * @param emailField JTextField accepts the email address of the user
+	 * @param rdbtnNewRadioButton JRadioButton choose Student type of Person
+	 * @param rdbtnNewRadioButton_1 JRadioButton choose Teacher type of Person
+	 * @param personType JTextField accepts the first name of the user
+	 * @param courseNameField JTextField accepts the course name
+	 * @param courseNumberField JTextField accepts the course number
+	 * 
+	 * Notes:
+	 * This is a test
 	 */
 	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
