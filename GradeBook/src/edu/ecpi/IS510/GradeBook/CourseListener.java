@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 
@@ -16,17 +17,20 @@ import javax.swing.JTextField;
 
 class CourseListener implements ActionListener {
 	JTextField courseName, courseNumber;
+	JComboBox credits;
 	long personId;
-	CourseListener(JTextField courseNameField, JTextField courseNumberField) {
+	CourseListener(JTextField courseNameField, JTextField courseNumberField, JComboBox credits) {
 	  this.courseName = courseNameField;
 	  this.courseNumber = courseNumberField;
+	  this.credits = credits;
   }
 
   public void actionPerformed(ActionEvent e) {
 	  Course newCourse = new Course();
 	  newCourse.courseNumber = courseNumber.getText();
 	  newCourse.title = courseName.getText();
-	  
+	  newCourse.credits = credits.getSelectedIndex() + 1;
+	  //System.out.println("Adding: " + newCourse.title + "-" + newCourse.courseNumber);
 
 	  try {
 		GradeBook.dbController.courseDao.createOrUpdate(newCourse);

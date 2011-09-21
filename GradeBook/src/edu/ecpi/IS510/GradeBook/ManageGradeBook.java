@@ -46,6 +46,7 @@ public class ManageGradeBook {
 	protected JTextField emailField;
 	
 	//Add Course Fields
+	private int[] creditValues = new int[4];
 	protected JTextField courseNameField;
 	protected JTextField courseNumberField;
 
@@ -221,12 +222,22 @@ public class ManageGradeBook {
 		panel_1.add(courseNumberField);
 		courseNumberField.setColumns(10);
 		
+		//Create dropdown list of credits
+		JComboBox credits = new JComboBox();
+		credits.setModel(new DefaultComboBoxModel());
+		credits.setBounds(350, 35, 60, 22);
+		credits.addItem(1);
+		credits.addItem(2);
+		credits.addItem(3);
+		credits.addItem(4);
+		panel_1.add(credits);
+		
 		JButton btnNewButton_1 = new JButton("Add Course");
 		panel_1.add(btnNewButton_1);
 		btnNewButton_1.setBounds(331, 234, 126, 23);
 		
 		//Add 'Add Course' action listener
-		btnNewButton_1.addActionListener(new CourseListener(courseNameField, courseNumberField));	
+		btnNewButton_1.addActionListener(new CourseListener(courseNameField, courseNumberField, credits));	
 		//****************************   END COURSE FIELDS *************** /
 		
 		//Add 'Assignments' pane
