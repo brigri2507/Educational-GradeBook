@@ -29,6 +29,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.Hashtable;
+import javax.swing.JSeparator;
+import javax.swing.SwingConstants;
 
 
 public class ManageGradeBook {
@@ -235,7 +237,7 @@ public class ManageGradeBook {
 		
 		JButton btnNewButton_1 = new JButton("Add Course");
 		panelCourses.add(btnNewButton_1);
-		btnNewButton_1.setBounds(350, 95, 126, 23);
+		btnNewButton_1.setBounds(361, 63, 126, 23);
 		//TODO Add an update action to re-populate combo lists below in course tab
 		
 		//Add 'Add Course' action listener
@@ -254,7 +256,7 @@ public class ManageGradeBook {
 		panelCourses.add(lblSelectAddStudent);
 		
 		JButton buttonAddStudentCourse = new JButton("Add Student to Course");
-		buttonAddStudentCourse.setBounds(350, 252, 200, 23);
+		buttonAddStudentCourse.setBounds(361, 405, 200, 23);
 		panelCourses.add(buttonAddStudentCourse);
 		
 		JComboBox comboBoxSelectCourseAddStudent = new JComboBox();
@@ -264,6 +266,51 @@ public class ManageGradeBook {
 		JComboBox comboBoxSelectAddStudent = new JComboBox();
 		comboBoxSelectAddStudent.setBounds(110, 221, 241, 20);
 		panelCourses.add(comboBoxSelectAddStudent);
+		
+		JList listBoxSelectMultiStudents = new JList();
+		listBoxSelectMultiStudents.setBounds(110, 255, 241, 173);
+		panelCourses.add(listBoxSelectMultiStudents);
+		
+		JLabel lableSelectMultipleStudents = new JLabel("Select Student(s)");
+		lableSelectMultipleStudents.setBounds(10, 256, 90, 14);
+		panelCourses.add(lableSelectMultipleStudents);
+		
+		JLabel lblNewLabel_1 = new JLabel("Use Ctrl + Click to add multiple students");
+		lblNewLabel_1.setBounds(110, 439, 241, 14);
+		panelCourses.add(lblNewLabel_1);
+		
+		JLabel labelTeacherCourse = new JLabel("Add a teacher to a course");
+		labelTeacherCourse.setHorizontalAlignment(SwingConstants.LEFT);
+		labelTeacherCourse.setBounds(10, 107, 125, 44);
+		panelCourses.add(labelTeacherCourse);
+		
+		JLabel labelCourseNameToTeacher = new JLabel("Course name");
+		labelCourseNameToTeacher.setBounds(158, 107, 150, 14);
+		panelCourses.add(labelCourseNameToTeacher);
+		
+		JButton btnAddTeacher = new JButton("Add Teacher -> Course");
+		btnAddTeacher.setBounds(574, 107, 150, 44);
+		panelCourses.add(btnAddTeacher);
+		
+		JComboBox comboBoxCourseToTeacher = new JComboBox();
+		comboBoxCourseToTeacher.setBounds(158, 129, 193, 20);
+		panelCourses.add(comboBoxCourseToTeacher);
+		
+		JComboBox comboBoxTeacherToCourse = new JComboBox();
+		comboBoxTeacherToCourse.setBounds(368, 129, 193, 20);
+		panelCourses.add(comboBoxTeacherToCourse);
+		
+		JLabel labelTeacherNameToCourse = new JLabel("Teacher name");
+		labelTeacherNameToCourse.setBounds(368, 107, 150, 14);
+		panelCourses.add(labelTeacherNameToCourse);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(20, 94, 697, 2);
+		panelCourses.add(separator);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(20, 155, 697, 2);
+		panelCourses.add(separator_1);
 		//****************************   END COURSE FIELDS *************** /
 		
 		//Add 'Assignments' pane
