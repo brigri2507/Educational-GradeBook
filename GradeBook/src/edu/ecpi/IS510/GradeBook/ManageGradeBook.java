@@ -35,6 +35,7 @@ public class ManageGradeBook {
 
 	protected JFrame frmIsGradebookApplication;
 	
+	//Add Person Fields
 	protected JTextField firstNameField;
 	protected JTextField lastNameField;
 	protected JTextField addressField;
@@ -44,24 +45,28 @@ public class ManageGradeBook {
 	protected JRadioButton rdbtnNewRadioButton = new JRadioButton("Student");
 	protected JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Teacher");
 	
+	//Add Course Fields
 	protected JTextField courseNameField;
 	protected JTextField courseNumberField;
 
 	/**
 	 * Launch the application.
+	 * Moved to 'Main.java'
 	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					ManageGradeBook window = new ManageGradeBook();
-//					window.frmIsGradebookApplication.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
+	/*public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ManageGradeBook window = new ManageGradeBook();
+					window.frmIsGradebookApplication.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}/*
+	
+	
 
 	/**
 	 * Create the application.
@@ -69,6 +74,8 @@ public class ManageGradeBook {
 	public ManageGradeBook() {
 		initialize();
 	}
+	
+	
 
 	/**
 	 * Initialize the contents of the frame.
@@ -80,14 +87,18 @@ public class ManageGradeBook {
 		frmIsGradebookApplication.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmIsGradebookApplication.getContentPane().setLayout(null);
 		
+		//Simple label for the applicaiton
 		JLabel lblWelcomeToThe = new JLabel("IS510 GradeBook Application");
 		lblWelcomeToThe.setBounds(20, 23, 254, 14);
 		frmIsGradebookApplication.getContentPane().add(lblWelcomeToThe);
 		
+		//Creates tabbed panel
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(20, 46, 752, 505);
 		frmIsGradebookApplication.getContentPane().add(tabbedPane);
 		
+		
+		//Add 'People' pane
 		JPanel panel = new JPanel();
 		tabbedPane.addTab("People", null, panel, null);
 		panel.setLayout(null);
@@ -96,6 +107,8 @@ public class ManageGradeBook {
 		lblThisSectionIs.setBounds(10, 11, 205, 14);
 		panel.add(lblThisSectionIs);
 		
+		
+		//****************************   BEGIN PERSON FIELDS *************** /
 		firstNameField = new JTextField("Enter Firstname");
 		firstNameField.setBounds(79, 33, 205, 20);
 		panel.add(firstNameField);
@@ -156,8 +169,16 @@ public class ManageGradeBook {
 		btnNewButton.setBounds(335, 234, 122, 23);
 		panel.add(btnNewButton);
 		
+		//Add the action listener to the Add Person button and pass in the ACTUAL fields themselves to grant access to the data
+		//that will be entered into them
 		btnNewButton.addActionListener(new PersonListener(firstNameField, lastNameField, addressField, phoneField, emailField, personType));
+
+		//****************************   END PERSON FIELDS *************** /
 		
+		
+
+		//****************************   BEGIN COURSE FIELDS *************** /
+		//Add 'Courses' pane
 		JPanel panel_1 = new JPanel();
 		tabbedPane.addTab("Courses", null, panel_1, null);
 		panel_1.setLayout(null);
@@ -188,8 +209,12 @@ public class ManageGradeBook {
 		JButton btnNewButton_1 = new JButton("Add Course");
 		panel_1.add(btnNewButton_1);
 		btnNewButton_1.setBounds(331, 234, 126, 23);
-		btnNewButton_1.addActionListener(new CourseListener(courseNameField, courseNumberField));	
 		
+		//Add 'Add Course' action listener
+		btnNewButton_1.addActionListener(new CourseListener(courseNameField, courseNumberField));	
+		//****************************   END COURSE FIELDS *************** /
+		
+		//Add 'Assignments' pane
 		JPanel panel_2 = new JPanel();
 		tabbedPane.addTab("Assignments", null, panel_2, null);
 		panel_2.setLayout(null);
