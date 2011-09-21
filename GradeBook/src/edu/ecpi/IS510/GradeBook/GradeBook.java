@@ -59,4 +59,10 @@ public class GradeBook {
 	{
 		students = dbController.studentDao.queryForAll();   
 	}
+
+	
+	protected static void updateTeachers() throws SQLException
+	{
+		teachers = dbController.teacherDao.queryForAll();   
+	}
 }
