@@ -29,6 +29,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.Hashtable;
+import javax.swing.JSeparator;
 
 
 public class ManageGradeBook {
@@ -235,7 +236,7 @@ public class ManageGradeBook {
 		
 		JButton btnNewButton_1 = new JButton("Add Course");
 		panelCourses.add(btnNewButton_1);
-		btnNewButton_1.setBounds(350, 95, 126, 23);
+		btnNewButton_1.setBounds(361, 63, 126, 23);
 		//TODO Add an update action to re-populate combo lists below in course tab
 		
 		//Add 'Add Course' action listener
@@ -254,7 +255,7 @@ public class ManageGradeBook {
 		panelCourses.add(lblSelectAddStudent);
 		
 		JButton buttonAddStudentCourse = new JButton("Add Student to Course");
-		buttonAddStudentCourse.setBounds(350, 252, 200, 23);
+		buttonAddStudentCourse.setBounds(361, 405, 200, 23);
 		panelCourses.add(buttonAddStudentCourse);
 		
 		JComboBox comboBoxSelectCourseAddStudent = new JComboBox();
@@ -264,6 +265,22 @@ public class ManageGradeBook {
 		JComboBox comboBoxSelectAddStudent = new JComboBox();
 		comboBoxSelectAddStudent.setBounds(110, 221, 241, 20);
 		panelCourses.add(comboBoxSelectAddStudent);
+		
+		JList listBoxSelectMultiStudents = new JList();
+		listBoxSelectMultiStudents.setBounds(110, 255, 241, 173);
+		panelCourses.add(listBoxSelectMultiStudents);
+		
+		JLabel lableSelectMultipleStudents = new JLabel("Select Student(s)");
+		lableSelectMultipleStudents.setBounds(10, 256, 90, 14);
+		panelCourses.add(lableSelectMultipleStudents);
+		
+		JLabel lblNewLabel_1 = new JLabel("Use Ctrl + Click to add multiple students");
+		lblNewLabel_1.setBounds(110, 439, 241, 14);
+		panelCourses.add(lblNewLabel_1);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(32, 155, 690, 2);
+		panelCourses.add(separator);
 		//****************************   END COURSE FIELDS *************** /
 		
 		//Add 'Assignments' pane
