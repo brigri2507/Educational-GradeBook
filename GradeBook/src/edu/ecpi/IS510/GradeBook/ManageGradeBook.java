@@ -30,7 +30,18 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.Hashtable;
 
-
+/*
+ * @param firstNameField JTextField accepts the first name of the user
+ * @param lastNameField JTextField accepts the last name of the user
+ * @param addressField JTextField accepts the address of the user
+ * @param phoneField JTextField accepts the phone number of the user
+ * @param emailField JTextField accepts the email address of the user
+ * @param rdbtnNewRadioButton JRadioButton choose Student type of Person
+ * @param rdbtnNewRadioButton_1 JRadioButton choose Teacher type of Person
+ * @param personType JTextField accepts the first name of the user
+ * @param courseNameField JTextField accepts the course name
+ * @param courseNumberField JTextField accepts the course number
+ */
 public class ManageGradeBook {
 
 	protected JFrame frmIsGradebookApplication;
@@ -41,9 +52,9 @@ public class ManageGradeBook {
 	protected JTextField addressField;
 	protected JTextField phoneField;
 	protected final ButtonGroup personType = new ButtonGroup();
-	protected JTextField emailField;
 	protected JRadioButton rdbtnNewRadioButton = new JRadioButton("Student");
 	protected JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Teacher");
+	protected JTextField emailField;
 	
 	//Add Course Fields
 	protected JTextField courseNameField;
