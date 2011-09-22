@@ -7,6 +7,20 @@ import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
+/**
+ * The Database controller class makes the program portable. By adding the ability to pass in a connection source, the program is not tied to one specific database.
+ * 
+ * <b>DAO or data access objects are created for each Class that is to be persisted in a database. The DAO has the built in ability to store and retrieve data regardless or DBMS.</b></ul>
+ *@param connectionSource allows the user to pass the connection information to the specific database they want to user. </ul>
+ *@param studentDao is a dao created to abstract and encapsulate all access to the data sources for the Student class.
+ *@param assignmentDao is a dao created to abstract and encapsulate all access to the data sources for the Assignment class.
+ *@param courseDao is a dao created to abstract and encapsulate all access to the data sources for the Course class.
+ *@param employeeDao is a dao created to abstract and encapsulate all access to the data sources for the Employee class.
+ *@param personDao is a dao created to abstract and encapsulate all access to the data sources for the Person class.
+ *@param teacherDao is a dao created to abstract and encapsulate all access to the data sources for the Teacher class.
+ *
+ *@author Joe Thompson
+ */
 public class DatabaseController {
     protected ConnectionSource connectionSource;
     public Dao<Student, String> studentDao;
@@ -15,6 +29,13 @@ public class DatabaseController {
     public Dao<Employee, String> employeeDao;
     public Dao<Person, String> personDao;
     public Dao<Teacher, String> teacherDao;
+    
+    /**
+     * Constructor method for establishing a new database connection it takes information such as database type, database name, user name, password. 
+     * 		Calls the Java Data Base Connection API to perform database transactions using built in driver for different DBMS types.</ul>
+     * If the connection <b>is not</b> established it will throw a SQL exception that the programmer can map to an error message.</ul>
+     * If the connection <b>is</b> successful it will create the DAO's and Tables.
+     */
     
     public DatabaseController(ConnectionSource connectionSource) throws SQLException{
     	this.connectionSource = new JdbcConnectionSource();

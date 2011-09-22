@@ -15,7 +15,12 @@ import com.j256.ormlite.table.DatabaseTable;
 /**
 Assignment object used to store each assignment with title due date description of the assignment and grade weight applied to each assignment @author Richard
 */
-
+/**
+* @DatabaseTable used by ormlite to identify classes to be written to the data base. Each class will create it's own table in the database with the assignment passed.
+ * @DatabaseField used by ormlite to identify attributes to be written to the table. Each attribute you want to persist must be identified with the tag. Optional flags that may be set are .  
+ * @author Joe Thompson
+ *
+ */
 @DatabaseTable (tableName = "assignments")
 public class Assignment implements Serializable{
 	private static final long serialVersionUID = 729937877153222955L;
