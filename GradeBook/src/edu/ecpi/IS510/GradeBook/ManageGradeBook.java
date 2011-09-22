@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import java.awt.GridLayout;
 
 import javax.swing.ButtonModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JTabbedPane;
 import javax.swing.JButton;
@@ -251,10 +252,6 @@ public class ManageGradeBook {
 		lblSelectCourseAddStudent.setBounds(10, 193, 150, 14);
 		panelCourses.add(lblSelectCourseAddStudent);
 		
-		JLabel lblSelectAddStudent = new JLabel("Course Number");
-		lblSelectAddStudent.setBounds(10, 218, 150, 14);
-		panelCourses.add(lblSelectAddStudent);
-		
 		JButton buttonAddStudentCourse = new JButton("Add Student to Course");
 		buttonAddStudentCourse.setBounds(361, 405, 200, 23);
 		panelCourses.add(buttonAddStudentCourse);
@@ -263,11 +260,8 @@ public class ManageGradeBook {
 		comboBoxSelectCourseAddStudent.setBounds(110, 190, 241, 20);
 		panelCourses.add(comboBoxSelectCourseAddStudent);
 		
-		JComboBox comboBoxSelectAddStudent = new JComboBox();
-		comboBoxSelectAddStudent.setBounds(110, 221, 241, 20);
-		panelCourses.add(comboBoxSelectAddStudent);
-		
-		JList listBoxSelectMultiStudents = new JList();
+		DefaultListModel studentModel = new DefaultListModel();
+		JList listBoxSelectMultiStudents = new JList(studentModel);
 		listBoxSelectMultiStudents.setBounds(110, 255, 241, 173);
 		panelCourses.add(listBoxSelectMultiStudents);
 		
@@ -329,6 +323,16 @@ public class ManageGradeBook {
 			currentStudent = GradeBook.students.get(i);
 			fullName = currentStudent.getFirstName() + " " + currentStudent.getLastName();
 			comboBox.addItem(fullName);
+			studentModel.addElement(fullName);
+		}
+
+		Course currentCourse = new Course();
+		String courseName = "";
+		for(int i = 0; i < GradeBook.courses.size(); i++){
+			currentCourse = GradeBook.courses.get(i);
+			courseName = currentCourse.getTitle();
+			comboBox.addItem(courseName);
+			comboBoxSelectCourseAddStudent.addItem(courseName);
 		}
 		
 		/*
