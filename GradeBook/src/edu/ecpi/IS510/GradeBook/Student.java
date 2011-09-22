@@ -8,8 +8,13 @@ import java.util.Iterator;
 
 /**
 Student object used to add a student id as an extension of Person to create a Student object. 
-*/
 
+ * @DatabaseTable used by ormlite to identify classes to be written to the data base. Each class will create it's own table in the database with the assignment passed.
+ * @DatabaseField used by ormlite to identify attributes to be written to the table. Each attribute you want to persist must be identified with the tag. Optional flags that may be set are .  
+ * @param studentID is a unique value assigned to each student and is the primary key for the student table
+ * @author Joe Thompson
+ *
+ */
 @DatabaseTable(tableName = "students")
 public class Student extends Person{
 	@DatabaseField(generatedId = true) protected long studentID;
@@ -18,6 +23,9 @@ public class Student extends Person{
 	 * @author Jim Esposito
 	 * Used to store course information for students in order to calculate GPA
 	 */
+	/**
+	 * @param studentID is a unique value assigned to each student and is the primary key for the student table
+	 */
 	protected HashMap<String, Course> courses;
 
 	/**
@@ -25,6 +33,14 @@ public class Student extends Person{
 	 * 
 	 * @param Course
 	 */
+	public Student(String firstName, String lastName, String address, String phone, String email, Long studentID){
+		/**
+		 * super() calls the constructor from the person class for storage of the variable that are passed in.
+		 */
+		super();
+		this.studentID=studentID;
+		
+	}
 	public void addCourse(Course course) throws Exception {
 		if(!courses.containsKey(course.getCourseNumber())){
 			courses.put(course.getCourseNumber(), course);

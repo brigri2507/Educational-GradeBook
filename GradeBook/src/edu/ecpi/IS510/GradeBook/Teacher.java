@@ -7,6 +7,10 @@ import com.j256.ormlite.table.DatabaseTable;
 /**
  *  Teacher Class assigns courses to a teacher's courseList which is an array of Courses[4].
  *  
+ * @DatabaseTable used by ormlite to identify classes to be written to the data base. Each class will create it's own table in the database with the assignment passed.
+ * @DatabaseField used by ormlite to identify attributes to be written to the table. Each attribute you want to persist must be identified with the tag. Optional flags that may be set are .  
+ * @author Joe Thompson
+ *
  */
 
 @DatabaseTable(tableName = "teachers")
@@ -20,6 +24,16 @@ public class Teacher extends Employee {
 	
 	   /** Creates NULL values for courseList of type Course(array) */   
 		public Teacher(){
+			courseList = new Course[4];
+			courseCount = 0;
+		}
+		/** Overloaded constructor for teacher */
+		public Teacher(String firstName, String lastName, String address, String phone, String email, Long employeeID){
+			/**
+			 * super() calls the constructor from the person class for storage of the variable that are passed in.
+			 */
+			super();
+			this.employeeID=employeeID;
 			courseList = new Course[4];
 			courseCount = 0;
 		}
