@@ -11,8 +11,11 @@ import com.j256.ormlite.table.DatabaseTable;
 /**
  *  Submission Class is a collection of data about the student's individual assignment to be used for Value data in a Hashtable.
  *  
+ * @DatabaseTable used by ormlite to identify classes to be written to the data base. Each class will create it's own table in the database with the assignment passed.
+ * @DatabaseField used by ormlite to identify attributes to be written to the table. Each attribute you want to persist must be identified with the tag. Optional flags that may be set are .  
+ * @author Joe Thompson
+ *
  */
-
 @DatabaseTable(tableName = "submissions")
 public class Submission implements Serializable{
 	private static final long serialVersionUID = -368784444373150198L;

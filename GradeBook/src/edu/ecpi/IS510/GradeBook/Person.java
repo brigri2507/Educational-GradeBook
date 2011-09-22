@@ -5,7 +5,13 @@ import com.j256.ormlite.table.DatabaseTable;
 
 /**
 * Person object used to define the main attributes a person will contain when created.
-*/
+  *
+ * @DatabaseTable used by ormlite to identify classes to be written to the data base. Each class will create it's own table in the database with the assignment passed.
+ * @DatabaseField used by ormlite to identify attributes to be written to the table. Each attribute you want to persist must be identified with the tag. Optional flags that may be set are .  
+ * @param studentID is a unique value assigned to each student and is the primary key for the student table
+ * @author Joe Thompson
+ *
+ */
 
 @DatabaseTable(tableName = "people")
 public class Person {
@@ -15,7 +21,20 @@ public class Person {
 	@DatabaseField protected String phone;
 	@DatabaseField protected String email;
 	
+	/*
+	 * Person(); Blank constructor required for the ormlite
+	 */
 	public Person(){
+	}
+	/*
+	 * Overloaded person constructor that that takes attributes identified in the class
+	 */
+	public Person(String firstName, String lastName, String address, String phone, String email){
+		this.firstName= firstName;
+		this.lastName = lastName;
+		this.address = address;
+		this.phone = phone;
+		this.email = email;
 	}
 	
 	/**
